@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Lì Xì Tết 2026 - Iu Em</title>
+    <style>
+        body { background: #d32f2f; color: #fff8e1; text-align: center; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding-top: 30px; overflow-x: hidden; }
+        h1 { color: #ffeb3b; text-shadow: 2px 2px #b71c1c; font-size: 2.5em; }
+        .description { font-style: italic; margin-bottom: 30px; font-size: 1.2em; }
+        
+        .envelope-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; max-width: 800px; margin: auto; padding: 20px; }
+        
+        .envelope { 
+            width: 120px; height: 180px; background: #b71c1c; border: 3px solid #ffd700; border-radius: 15px; 
+            cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; 
+            font-size: 50px; transition: all 0.3s ease; box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            position: relative;
+        }
+
+        .envelope:hover { transform: translateY(-10px) rotate(3deg); background: #c62828; border-color: #fff; }
+        
+        /* Hiệu ứng rung nhẹ cho bao lì xì */
+        .envelope { animation: shake 2s infinite; }
+        @keyframes shake {
+            0% { transform: rotate(0deg); }
+            5% { transform: rotate(3deg); }
+            10% { transform: rotate(-3deg); }
+            15% { transform: rotate(0deg); }
+        }
+
+        #result { 
+            display: none; font-size: 2em; margin-top: 50px; padding: 40px;
+            border: 5px double #ffd700; display: inline-block; border-radius: 20px;
+            background: rgba(0,0,0,0.2); animation: pop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes pop { from { transform: scale(0); } to { transform: scale(1); } }
+        .lucky-number { font-size: 120px; color: #ffeb3b; display: block; margin: 20px 0; text-shadow: 0 0 20px #ff9800; }
+        .btn-reset { margin-top: 20px; padding: 10px 20px; background: #ffd700; color: #b71c1c; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; }
+        .hidden { display: none !important; }
+    </style>
+</head>
+<body>
+
+    <h1>🧧 MỪNG XUÂN BÍNH NGỌ 2026 🧧</h1>
+    <div id="intro">
+        <p class="description">Gửi tặng người con gái anh iu nhất...</p>
+        <p>Em hãy chọn một phong bao may mắn nhất để xem số lì xì nhé!</p>
+    </div>
+    
+    <div class="envelope-container" id="envelopeBox">
+        <div class="envelope" onclick="openEnvelope()">🧧</div>
+        <div class="envelope" onclick="openEnvelope()">🧧</div>
+        <div class="envelope" onclick="openEnvelope()">🧧</div>
+        <div class="envelope" onclick="openEnvelope()">🧧</div>
+        <div class="envelope" onclick="openEnvelope()">🧧</div>
+        <div class="envelope" onclick="openEnvelope()">🧧</div>
+        <div class="envelope" onclick="openEnvelope()">🧧</div>
+        <div class="envelope" onclick="openEnvelope()">🧧</div>
+        <div class="envelope" onclick="openEnvelope()">🧧</div>
+        <div class="envelope" onclick="openEnvelope()">🧧</div>
+    </div>
+
+    <div id="result" class="hidden">
+        <span>Con số may mắn của em là:</span>
+        <span class="lucky-number" id="num">0</span>
+        <button class="btn-reset" onclick="location.reload()">Chọn lại</button>
+    </div>
+
+    <script>
+        function openEnvelope() {
+            // Random từ 1 đến 10
+            const luckyNumber = Math.floor(Math.random() * 10) + 1;
+            
+            // Ẩn tiêu đề và danh sách bao
+            document.getElementById('envelopeBox').classList.add('hidden');
+            document.getElementById('intro').classList.add('hidden');
+            
+            // Hiện kết quả
+            const resultDiv = document.getElementById('result');
+            resultDiv.classList.remove('hidden');
+            document.getElementById('num').innerText = luckyNumber;
+            
+            // Một chút hiệu ứng console cho vui
+            console.log("Hệ thống đã chọn số: " + luckyNumber);
+        }
+    </script>
+</body>
+</html>
